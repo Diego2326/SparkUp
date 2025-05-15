@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PruebaLogin"
+rootProject.name = "SparkUp"
 include(":app")

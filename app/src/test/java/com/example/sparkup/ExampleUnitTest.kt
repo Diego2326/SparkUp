@@ -1,4 +1,4 @@
-package com.example.pruebalogin
+package com.example.sparkup
 
 import org.junit.Test
 

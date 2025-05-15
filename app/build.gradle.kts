@@ -5,11 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pruebalogin"
+    namespace = "com.example.sparkup"
+
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.pruebalogin"
+        applicationId = "com.example.sparkup"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

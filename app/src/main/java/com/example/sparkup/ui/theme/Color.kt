@@ -1,4 +1,4 @@
-package com.example.pruebalogin.ui.theme
+package com.example.sparkup.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

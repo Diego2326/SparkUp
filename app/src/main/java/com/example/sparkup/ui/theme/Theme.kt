@@ -1,4 +1,4 @@
-package com.example.pruebalogin.ui.theme
+package com.example.sparkup.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -6,8 +6,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.example.pruebalogin.ui.theme.BlueAccent
-
 
 
 private val DarkColorScheme = darkColorScheme(
