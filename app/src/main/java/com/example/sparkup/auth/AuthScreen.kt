@@ -75,19 +75,34 @@ fun AuthScreen(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Image(
+                    /*Image(
                         painter = painterResource(id = R.drawable.logosparkup),
                         contentDescription = "Logo SparkUp",
                         modifier = Modifier
                             .fillMaxWidth(0.8f)
-                            .padding(bottom = 40.dp)
+                            .padding(bottom = 50.dp)
+                            .heightIn(min = 120.dp, max = 220.dp)
+                    )*/
+
+                    val logos = if (isDarkMode.value) {
+                        R.drawable.jordy
+                    } else {
+                        R.drawable.logosparkup
+                    }
+
+                    Image(
+                        painter = painterResource(id = logos),
+                        contentDescription = "Logo SparkUp",
+                        modifier = Modifier
+                            .fillMaxWidth(0.8f)
+                            .padding(bottom = 50.dp)
                             .heightIn(min = 120.dp, max = 220.dp)
                     )
 
                     OutlinedTextField(
                         value = usuario.value,
                         onValueChange = { usuario.value = it },
-                        label = { Text("Usuario") },
+                        label = { Text("Correo Electronico") },
                         modifier = Modifier.fillMaxWidth(),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = MaterialTheme.colorScheme.tertiary,
@@ -113,6 +128,21 @@ fun AuthScreen(
                         )
                     )
 
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = "¿Olvidaste la Contraseña?",
+                        color = MaterialTheme.colorScheme.tertiary,
+                        fontSize = 14.sp,
+                        modifier = Modifier
+                            .clickable {
+                                scope.launch {
+                                    snackbarHostState.showSnackbar("Función no disponible todavía")
+                                }
+                            }
+                            .padding(top = 0.dp)
+                    )
+
                     Spacer(modifier = Modifier.height(24.dp))
 
                     Button(
@@ -129,52 +159,44 @@ fun AuthScreen(
                         Text("Iniciar Sesión")
                     }
 
-                    Spacer(modifier = Modifier.height(8.dp))
+
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    val googleButtonRes = if (isDarkMode.value) {
+                        R.drawable.googledark
+                    } else {
+                        R.drawable.googlelight
+                    }
+                    Image(
+                        painter = painterResource(id = googleButtonRes),
+                        contentDescription = "Iniciar sesión con Google",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp)
+                            .clickable {
+                                scope.launch {
+                                    snackbarHostState.showSnackbar("Iniciar sesión con Google")
+                                }
+                            }
+                    )
+
+
+
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "¿Olvidaste la Contraseña?",
+                        text = "Registrarse",
                         color = MaterialTheme.colorScheme.tertiary,
                         fontSize = 14.sp,
                         modifier = Modifier
                             .clickable {
                                 scope.launch {
-                                    snackbarHostState.showSnackbar("Función no disponible todavía")
+                                    snackbarHostState.showSnackbar("Redirigiendo a pagina de registro")
                                 }
                             }
-                            .padding(top = 8.dp)
+                            .padding(top = 16.dp)
                     )
-
-                    Spacer(modifier = Modifier.height(24.dp))
-
-                    OutlinedButton(
-                        onClick = {
-                            scope.launch {
-                                snackbarHostState.showSnackbar("Iniciar sesión con Google")
-                            }
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            contentColor = MaterialTheme.colorScheme.tertiary
-                        )
-                    ) {
-                        Text("Iniciar con Google")
-                    }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    OutlinedButton(
-                        onClick = {
-                            scope.launch {
-                                snackbarHostState.showSnackbar("Redirigiendo a registro...")
-                            }
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            contentColor = MaterialTheme.colorScheme.tertiary
-                        )
-                    ) {
-                        Text("Registrarse")
-                    }
                 }
             }
         }
