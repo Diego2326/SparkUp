@@ -1,5 +1,4 @@
 package com.example.sparkup
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,9 +6,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
-import com.example.sparkup.auth.AuthScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.sparkup.navigation.AppNavGraph
 import com.example.sparkup.ui.theme.PruebaLoginTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,10 +23,12 @@ class MainActivity : ComponentActivity() {
             val isDarkMode = rememberSaveable { mutableStateOf(defaultDark) }
             val snackbarHostState = remember { SnackbarHostState() }
             val scope = rememberCoroutineScope()
+            val navController = rememberNavController()
 
             PruebaLoginTheme(darkTheme = isDarkMode.value) {
                 Surface {
-                    AuthScreen(
+                    AppNavGraph(
+                        navController = navController,
                         isDarkMode = isDarkMode,
                         snackbarHostState = snackbarHostState,
                         scope = scope

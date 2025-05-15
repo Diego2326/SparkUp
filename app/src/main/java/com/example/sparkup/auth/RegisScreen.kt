@@ -21,12 +21,14 @@ import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuthScreen(
+fun RegisScreen(
+    navController: NavHostController,
     isDarkMode: MutableState<Boolean>,
     snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
-    navController: NavHostController
+    scope: CoroutineScope
+
 ) {
+    val nombre = remember { mutableStateOf("") }
     val usuario = remember { mutableStateOf("") }
     val contrasena = remember { mutableStateOf("") }
 
@@ -86,20 +88,18 @@ fun AuthScreen(
                             .heightIn(min = 120.dp, max = 220.dp)
                     )
 
-                    /*val logos = if (isDarkMode.value) {
-                        R.drawable.jordy
-                    } else {
-                        R.drawable.logosparkup
-                    }
-
-                    Image(
-                        painter = painterResource(id = logos),
-                        contentDescription = "Logo SparkUp",
-                        modifier = Modifier
-                            .fillMaxWidth(0.8f)
-                            .padding(bottom = 50.dp)
-                            .heightIn(min = 120.dp, max = 220.dp)
-                    )*/
+                    OutlinedTextField(
+                        value = nombre.value,
+                        onValueChange = { nombre.value = it },
+                        label = { Text("Nombre") },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = MaterialTheme.colorScheme.tertiary,
+                            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                            focusedLabelColor = MaterialTheme.colorScheme.tertiary,
+                            unfocusedLabelColor = MaterialTheme.colorScheme.onSurface
+                        )
+                    )
 
                     OutlinedTextField(
                         value = usuario.value,
@@ -150,7 +150,7 @@ fun AuthScreen(
                     Button(
                         onClick = {
                             scope.launch {
-                                snackbarHostState.showSnackbar("Iniciando sesión como ${usuario.value}")
+                                snackbarHostState.showSnackbar("Registrando como ${nombre.value} con el Email ${usuario.value}")
                             }
                         },
                         modifier = Modifier.fillMaxWidth(),
@@ -158,7 +158,7 @@ fun AuthScreen(
                             containerColor = MaterialTheme.colorScheme.tertiary
                         )
                     ) {
-                        Text("Iniciar Sesión")
+                        Text("Registrarse")
                     }
 
 
@@ -188,12 +188,14 @@ fun AuthScreen(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "¿No tienes cuenta? Registrate",
+                        text = "Iniciar Sesion",
                         color = MaterialTheme.colorScheme.tertiary,
                         fontSize = 14.sp,
                         modifier = Modifier
                             .clickable {
-                                navController.navigate("register")
+                                navController.navigate("login") {
+                                    popUpTo("register") { inclusive = true }
+                                }
                             }
 
                             .padding(top = 16.dp)
