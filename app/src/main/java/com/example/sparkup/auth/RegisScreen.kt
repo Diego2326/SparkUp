@@ -132,18 +132,7 @@ fun RegisScreen(
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Text(
-                        text = "¿Olvidaste la Contraseña?",
-                        color = MaterialTheme.colorScheme.tertiary,
-                        fontSize = 14.sp,
-                        modifier = Modifier
-                            .clickable {
-                                scope.launch {
-                                    snackbarHostState.showSnackbar("Función no disponible todavía")
-                                }
-                            }
-                            .padding(top = 0.dp)
-                    )
+
 
                     Spacer(modifier = Modifier.height(24.dp))
 

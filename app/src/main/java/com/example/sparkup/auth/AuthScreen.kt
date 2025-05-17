@@ -86,20 +86,7 @@ fun AuthScreen(
                             .heightIn(min = 120.dp, max = 220.dp)
                     )
 
-                    /*val logos = if (isDarkMode.value) {
-                        R.drawable.jordy
-                    } else {
-                        R.drawable.logosparkup
-                    }
 
-                    Image(
-                        painter = painterResource(id = logos),
-                        contentDescription = "Logo SparkUp",
-                        modifier = Modifier
-                            .fillMaxWidth(0.8f)
-                            .padding(bottom = 50.dp)
-                            .heightIn(min = 120.dp, max = 220.dp)
-                    )*/
 
                     OutlinedTextField(
                         value = usuario.value,
