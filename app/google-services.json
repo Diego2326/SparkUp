@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "267210194267",
+    "project_id": "sparkup-91b81",
+    "storage_bucket": "sparkup-91b81.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267210194267:android:47cd2596ab6bae55456e7e",
+        "android_client_info": {
+          "package_name": "com.example.sparkup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267210194267-arnapn9j27frhae2kqld2lqjf0qs38ub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sparkup",
+            "certificate_hash": "082c54a90b8ec8482507ada4fd7de970a1db7f08"
+          }
+        },
+        {
+          "client_id": "267210194267-oekrulgc1af1n3m0v0lk7cl8sjf10d01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5PQUHiDvtUv1faWMOV7RLV5MTW6A2HOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267210194267-oekrulgc1af1n3m0v0lk7cl8sjf10d01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

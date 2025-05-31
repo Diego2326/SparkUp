@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="cache" path="." />
+    <!-- O usa external-path si quieres guardar en almacenamiento externo -->
+    <!-- <external-path name="external" path="." /> -->
+</paths>
